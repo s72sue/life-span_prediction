@@ -17,8 +17,10 @@ for key, value in data.items():
 
 plt.figure()
 plt.plot(obs_age, ens_predictions)
+plt.title("Ensemble Predictions")
 
 plt.figure()
 plt.plot(obs_age, node_predictions)
+plt.title("Node Predictions")
 
 plt.show()
