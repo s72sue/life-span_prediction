@@ -116,7 +116,7 @@ try:
 			return [x / total for x in a]
 		    
 		    
-		    norm_post = nengo.Ensemble(n_neurons=50, dimensions=dim, 
+		    norm_post = nengo.Ensemble(n_neurons=250, dimensions=dim, 
 				               encoders=post_space,
 				             eval_points=post_space)
 		    
@@ -140,7 +140,7 @@ try:
 		    prediction2 = nengo.Node(output=None, size_in=1)
 		       
 		    nengo.Connection(norm_post, prediction1, function=median)
-		    nengo.Connection(norm_post, prediction2, function=median, synapse=0.03)
+		    nengo.Connection(norm_post, prediction2, function=median) #, synapse=0.03)
 		    probe_func5 = nengo.Probe(prediction1, synapse=0.03)
 		    probe_func6 = nengo.Probe(prediction2, synapse=0.03)
 		    
@@ -155,7 +155,7 @@ except:
 	print "SS - Exception occured"	
 
 finally:
-	fname = 'nengo_predictions.p'
+	fname = 'nengo_predictions_new.p'
 	pickle.dump(data, open(fname, 'wb'))
 	print("pickle complete")
 	print(fname)
